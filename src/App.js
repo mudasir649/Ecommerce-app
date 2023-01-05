@@ -10,15 +10,7 @@ function App() {
         fjkd
         dsm
       </header>
-      fdfd
-      km,
-      jjk
-      dfds
-      kmlf
-      c;'cd,l;s'mn,,m
-      fvjk
-      fskdkm
-      nnm
+      hello where are you
     </div>
   );
 }
