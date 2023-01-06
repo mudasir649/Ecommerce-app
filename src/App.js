@@ -1,17 +1,32 @@
-// import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/login/Login";
+import List from "./pages/list/List";
+import Single from "./pages/single/Single";
+import New from "./pages/new/New";
+import Home from "./pages/home/Home";
+import "./app.css"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello this is simple admin dashbaord</h1>
-        ff
-        jkfdjk
-        fjkd
-        dsm
-      </header>
-      hello where are you
-      kaise se ho
+      <Router>
+        <Routes>
+          <Route path="/Ecommerce-app/">
+            <Route index element={<Home/>} />
+            <Route path="/Ecommerce-app/login" element={<Login/>} />
+            <Route path="/Ecommerce-app/users">
+              <Route index element={<List/>} />
+              <Route path=":userId" element={<Single/>} />
+              <Route path="new" element={<New/>} />
+            </Route>
+            <Route path="/Ecommerce-app/products">
+              <Route index element={<List/>} />
+              <Route path=":productId" element={<Single/>} />
+              <Route path="new" element={<New/>} />
+            </Route>
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
