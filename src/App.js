@@ -5,8 +5,10 @@ import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import Home from "./pages/home/Home";
 import "./app.css"
+import { productInputs, userInputs } from "./formSource";
 
 function App() {
+
   return (
     <div className="App">
       <Router>
@@ -17,12 +19,12 @@ function App() {
             <Route path="/Ecommerce-app/users">
               <Route index element={<List/>} />
               <Route path=":userId" element={<Single/>} />
-              <Route path="new" element={<New/>} />
+              <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />
             </Route>
             <Route path="/Ecommerce-app/products">
               <Route index element={<List/>} />
               <Route path=":productId" element={<Single/>} />
-              <Route path="new" element={<New/>} />
+              <Route path="new" element={<New inputs={productInputs} title="Add New Products" />} />
             </Route>
           </Route>
         </Routes>
