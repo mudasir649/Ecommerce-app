@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./sidebar.scss"
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
@@ -12,11 +12,19 @@ import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { Link } from "react-router-dom";
+import { DarkModeContext } from '../../context/DarkModeContext';
+
 function Sidebar() {
+
+  const { dispatch } = useContext(DarkModeContext);
+
   return (
     <div className='sidebar'>
       <div className='top'>
-        <span className='logo'>lamadmin</span>
+        <Link to="/Ecommerce-app" style={{ textDecoration:"none" }}>
+          <span className='logo'>lamadmin</span>
+        </Link>
       </div>
       <hr />
       <div className='center'>
@@ -29,11 +37,15 @@ function Sidebar() {
           <p className='title'>LIST</p>
           <li>
             <GroupOutlinedIcon className='icon' />
-            <span>Users</span>
+            <Link to="/Ecommerce-app/users" style={{textDecoration:"none"}}>
+              <span>Users</span>
+            </Link>
           </li>
           <li>
             <Inventory2Icon className='icon' />
-            <span>Products</span>
+            <Link to="/Ecommerce-app/products" style={{textDecoration:"none"}}>
+              <span>Products</span>
+            </Link>
           </li>
           <li>
             <BorderStyleIcon className='icon' />
@@ -77,8 +89,8 @@ function Sidebar() {
         </ul>
       </div>
       <div className='bottom'>
-        <div className='colorOption'></div>
-        <div className='colorOption'></div>
+        <div className='colorOption' onClick={() => dispatch({ type: "LIGHT" })}></div>
+        <div className='colorOption' onClick={() => dispatch({ type: "DARK" })}></div>
       </div>
     </div>
   )

@@ -6,11 +6,17 @@ import New from "./pages/new/New";
 import Home from "./pages/home/Home";
 import "./app.css"
 import { productInputs, userInputs } from "./formSource";
+import "./components/style/dark.scss"
+import { useContext } from "react";
+import { DarkModeContext } from "./context/DarkModeContext";
 
 function App() {
 
+  const { darkMode } = useContext(DarkModeContext);
+
+
   return (
-    <div className="App">
+    <div className={darkMode ? "app dark" : "app"}>
       <Router>
         <Routes>
           <Route path="/Ecommerce-app/">
